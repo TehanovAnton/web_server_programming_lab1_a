@@ -98,8 +98,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IISHandler1.cs" />
-    <Compile Include="IISHandler2.cs" />
+    <Compile Include="GetHandler.cs" />
+    <Compile Include="PostHandler.cs" />
     <Compile Include="PutHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
