@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web;
+using System.Collections.Specialized;
 
 namespace lab1_a
 {
@@ -16,10 +17,20 @@ namespace lab1_a
             get { return true; }
         }
 
+        public NameValueCollection QueryString(HttpRequest request)
+        {
+            return request.QueryString;
+        }
+         
         public void ProcessRequest(HttpContext context)
         {
             HttpResponse res = context.Response;
-            res.Write("IISHandler1");
+            HttpRequest req = context.Request;
+
+            NameValueCollection queryString = QueryString(req);
+            String response = $"Get-Http-TAV:ParmA = {queryString["a"]}, ParmB = {queryString["b"]}";
+
+            res.Write(response);
         }
     }
 }
