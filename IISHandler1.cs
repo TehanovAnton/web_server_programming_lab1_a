@@ -30,6 +30,7 @@ namespace lab1_a
             NameValueCollection queryString = QueryString(req);
             String response = $"Get-Http-TAV:ParmA = {queryString["a"]}, ParmB = {queryString["b"]}";
 
+            res.ContentType = "text/plain";
             res.Write(response);
         }
     }
