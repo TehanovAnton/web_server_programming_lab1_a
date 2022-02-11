@@ -1,33 +1,31 @@
 ﻿using System;
-using System.Collections.Specialized;
 using System.Web;
-using System.IO;
-
+using System.Collections.Specialized;
 
 namespace lab1_a
 {
-    public class IISHandler2 : IHttpHandler
+    public class GetHandler : IHttpHandler
     {        
         public bool IsReusable
         {            
             get { return true; }
         }
 
-        public NameValueCollection Params(HttpRequest request)
+        public NameValueCollection QueryString(HttpRequest request)
         {
-            return request.Params;
+            return request.QueryString;
         }
-
+         
         public void ProcessRequest(HttpContext context)
         {
             HttpResponse res = context.Response;
             HttpRequest req = context.Request;
 
-            NameValueCollection parameters = Params(req);
-            string response = $"Post-Http-TAV:ParmA = {parameters["a"]}, ParmB = {parameters["b"]}";
+            NameValueCollection queryString = QueryString(req);
+            String response = $"Get-Http-TAV:ParmA = {queryString["a"]}, ParmB = {queryString["b"]}";
 
             res.ContentType = "text/plain";
             res.Write(response);
-        }        
+        }
     }
 }
