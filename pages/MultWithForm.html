@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input type="number" id="result">
+    <form id="mult_form" method="post" onsubmit="fetchMultHandler2()">
+        <input type="number" name="y">
+        <input type="number" name="x">
+        <input type="submit">
+    </form>
+
+    <script>
+        function fetchMultHandler2() {
+            let form = document.getElementById('mult_form');
+            let formData = new FormData(form)
+
+            fetch('http://localhost:54436/multWithForm/', {
+                method: 'POST',
+                body: formData.body
+            })
+                .then(res => res.text())
+                .then(text => {
+                    console.log('HELLO')
+
+                    let result = document.getElementById('result');
+                    result.innerHTML = parseInt(text);
+                })
+        }
+    </script>
+</body>
+</html>
