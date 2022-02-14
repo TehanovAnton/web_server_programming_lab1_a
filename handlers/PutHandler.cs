@@ -5,7 +5,7 @@ using System.Collections;
 using System.Text.Json;
 using System.IO;
 
-namespace lab1_a
+namespace lab1_a.handlers
 {
     public class PutHandler : IHttpHandler
     {

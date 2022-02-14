@@ -6,7 +6,7 @@ using System.IO;
 using System.Text.Json;
 
 
-namespace lab1_a
+namespace lab1_a.handlers
 {
     public class PostHandler : IHttpHandler
     {        

@@ -2,7 +2,7 @@
 using System.Web;
 using System.Collections.Specialized;
 
-namespace lab1_a
+namespace lab1_a.handlers
 {
     public class GetHandler : IHttpHandler
     {        
